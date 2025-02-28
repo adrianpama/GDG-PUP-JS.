@@ -1,32 +1,47 @@
 /********************
  Step 1: Create Global Variables
- - Create two global variables (e.g., globalVar, anotherGlobalVar).
- - Assign any values you like.
 ********************/
-
+var globalVar = "I am a global variable.";
+var anotherGlobalVar = 100;
 
 /********************
  Step 2: Create a Function to Demonstrate Function Scope
- - Define a function (e.g., demoFunctionScope).
- - Inside this function:
-   1. Declare a local variable (e.g., localVar).
-   2. Log both the global variable(s) and the local variable to the console.
-   3. Return a string that includes both the global and local variables.
 ********************/
-
+function demoFunctionScope() {
+    // Declare a local variable
+    let localVar = "I am a local variable.";
+    
+    // Log both the global variable(s) and the local variable
+    console.log("Inside the function:");
+    console.log(globalVar); // Logs the global variable
+    console.log(anotherGlobalVar); // Logs the second global variable
+    console.log(localVar); // Logs the local variable
+    
+    // Return a string combining the global and local variables
+    return `${globalVar}, ${anotherGlobalVar}, and ${localVar}`;
+}
 
 /********************
  Step 3: Call the Function and Log Its Return Value
- - Call your function from Step 2 and store its result in a variable.
- - Use console.log() to display the return value in the console.
 ********************/
-
+const functionResult = demoFunctionScope(); // Call the function
+console.log("Function return value:");
+console.log(functionResult); // Log the returned value
 
 /********************
  Step 4: Demonstrate Block Scope
- - Write an if statement that always executes (if (true) { ... }).
- - Inside this block:
-   1. Use let to declare a block-scoped variable (e.g., blockVar).
-   2. Log the block-scoped variable within the block.
- - Try logging the same variable outside the block and observe what happens.
 ********************/
+if (true) { // This block will always execute
+    // Declare a block-scoped variable
+    let blockVar = "I am block-scoped.";
+    console.log("Inside the block:");
+    console.log(blockVar); // Log the block-scoped variable
+}
+
+try {
+    // Attempt to log the block-scoped variable outside the block
+    console.log("Outside the block:");
+    console.log(blockVar); // This will throw an error because blockVar is not defined here
+} catch (e) {
+    console.error("Error:", e.message); // Log the error message
+}
