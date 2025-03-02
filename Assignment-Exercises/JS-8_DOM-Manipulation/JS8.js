@@ -15,3 +15,4 @@ subtractButton.addEventListener('click', function() {
         counterValue--;
         counterText.textContent = counterValue;
     }
+});
